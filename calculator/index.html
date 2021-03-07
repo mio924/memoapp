@@ -20,7 +20,7 @@
     {　
     
         //if (_v[_v.length-1]==es) {_v-=es
-        if (_v!="/"&&"*"&&"+"&&"-"&&"**"&&"::0.5") {   
+        if (_v!="/"||_v!="*"||_v!="+"||_v!="-"||_v!="**"||_v!="**0.5") {   
             document.querySelector( 'input' ).value += _v
         } else if (document.querySelector( 'input' ).value[document.querySelector( 'input' ).value.length-1]=="/"&&"*"&&"+"&&"-"&&"**"&&"::0.5"){
             document.querySelector( 'input' ).value -=document.querySelector( 'input' ).value[document.querySelector( 'input' ).value.length-1]
