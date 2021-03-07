@@ -17,9 +17,22 @@
     }
 
     function append( _v ) // 数字ボタンが押されたので数字を後ろに追加する
-    {
-        document.querySelector( 'input' ).value += _v
+    {　
+    
+        //if (_v[_v.length-1]==es) {_v-=es
+        if (_v!="/"&&"*"&&"+"&&"-"&&"**"&&"::0.5") {   
+            document.querySelector( 'input' ).value += _v
+        } else if (document.querySelector( 'input' ).value[document.querySelector( 'input' ).value.length-1]=="/"&&"*"&&"+"&&"-"&&"**"&&"::0.5"){
+            document.querySelector( 'input' ).value -=document.querySelector( 'input' ).value[document.querySelector( 'input' ).value.length-1]
+            document.querySelector( 'input' ).value += _v
+        
+        } else {
+            document.querySelector( 'input' ).value = _v
+        }
+        
     }
+    
+     
 
     function calc() // 「＝」ボタンが押されたので計算する
     {
@@ -46,7 +59,6 @@
     <button onclick="append( '+' )" >+</button>
     <button onclick="append( '-' )" >-</button>
     <button onclick="append( '*' )" >*</button>
-    <button onclick="append( '/' )" >/</button><br />
     <button onclick="append( '**' )" >^</button>
     <button onclick="append( '**0.5' )" >√</button>
 
