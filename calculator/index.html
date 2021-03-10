@@ -18,19 +18,39 @@
 
     function append( _v ) // 数字ボタンが押されたので数字を後ろに追加する
     {　
-    
-        //if (_v[_v.length-1]==es) {_v-=es
-        if (_v!="/"||_v!="*"||_v!="+"||_v!="-"||_v!="**"||_v!="**0.5") {   
-            document.querySelector( 'input' ).value += _v
-        } else if (document.querySelector( 'input' ).value[document.querySelector( 'input' ).value.length-1]=="/"&&"*"&&"+"&&"-"&&"**"&&"::0.5"){
-            document.querySelector( 'input' ).value -=document.querySelector( 'input' ).value[document.querySelector( 'input' ).value.length-1]
-            document.querySelector( 'input' ).value += _v
+        //インプットに入る値を変数にする
         
-        } else {
-            document.querySelector( 'input' ).value = _v
+       
+        
+        //最後の一文字も変数に置き換える
+         //let lastStr =document.querySelector('input').value [document.querySelector('input').value.length-1]
+        
+        
+        //if (_v!="/"||_v!="*"||_v!="+"||_v!="-"||_v!="**"||_v!="**0.5") {   
+            document.querySelector('input').value=document.querySelector('input').value+_v
+        //} else if (lastStr=="/"||lastStr=="*"||lastStr=="+"||lastStr=="-"||lastStr=="**"||lastStr=="::0.5"){
+            
+        
+        //} else {
+            //document.querySelector('input').value += _v
         }
         
-    }
+        function symbol(_v){
+             let lastStr =document.querySelector('input').value [document.querySelector('input').value.length-1]
+             
+             if (lastStr=="/"||lastStr=="*"||lastStr=="+"||lastStr=="-"||lastStr=="**"||lastStr=="::0.5"){
+                
+                document.querySelector('input').value=document.querySelector('input').value.slice(0,-1)
+                
+                document.querySelector('input').value=document.querySelector('input').value+_v
+                
+                
+             }else{
+             document.querySelector('input').value=document.querySelector('input').value+_v
+             }
+                
+        }
+    
     
      
 
@@ -56,11 +76,11 @@
     <button onclick="append( '9' )" >9</button>
     <button onclick="append( '0' )" >0</button><br />
     <button onclick="append( '.' )" >.</button>
-    <button onclick="append( '+' )" >+</button>
-    <button onclick="append( '-' )" >-</button>
-    <button onclick="append( '*' )" >*</button>
-    <button onclick="append( '**' )" >^</button>
-    <button onclick="append( '**0.5' )" >√</button>
+    <button onclick="symbol( '+' )" >+</button>
+    <button onclick="symbol( '-' )" >-</button>
+    <button onclick="symbol( '*' )" >*</button>
+    <button onclick="symbol( '**' )" >^</button>
+    <button onclick="symbol( '**0.5' )" >√</button>
 
     <button onclick="calc()" style="width:105px;">=</button>
 
